@@ -20,3 +20,8 @@ Inside R, install the required packages:
 install.packages("devtools")
 install.packages("usethis")
 ```
+
+On a Slurm machine, an R script may be run using
+```
+srun singularity exec /path/to/singularity-r.sif R CMD BATCH /path/to/script.R
+```
