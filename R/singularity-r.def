@@ -46,10 +46,10 @@ From: ubuntu:20.04
     r-base-core=${R_VERSION}* \
     r-base-dev=${R_VERSION}* \
     r-recommended=${R_VERSION}* \
-    r-cran-mgcv\
-    r-cran-mass\
-    r-cran-nnet\
-    r-cran-nlme\
+    r-cran-mass=7.3*\
+    r-cran-mgcv=1.8*\
+    r-cran-nlme=3.1*\
+    r-cran-nnet=7.3*\
     r-base-html=${R_VERSION}* \
     r-doc-html=${R_VERSION}* \
     libcurl4-openssl-dev \
@@ -73,7 +73,7 @@ From: ubuntu:20.04
     mkdir -p /library
     echo "R_LIBS_SITE=/library:\${R_LIBS_SITE}" >> /usr/lib/R/etc/Renviron.site
     R --slave -e 'install.packages("pacman")'
-    R --slave -e 'pacman::p_load("devtools", "usethis", "here", "folderfun", "stringr")'
+    R --slave -e 'pacman::p_load("devtools", "usethis", "here", "folderfun", "parallel", "stringr", "randomForest")'
 
     # Clean up
     rm -rf /var/lib/apt/lists/*
